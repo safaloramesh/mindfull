@@ -10,8 +10,6 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      # Add your API_KEY here if your server.js needs it
-      - API_KEY=${API_KEY:-default_value} 
     volumes:
       - mindful_data:/app/data
     restart: unless-stopped
