@@ -1,22 +1,19 @@
-# Stage 1: Build the frontend
+# Stage 1: Build the React frontend
 FROM node:18-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-# This creates the 'dist' folder the server needs
 RUN npm run build
 
-# Stage 2: Run the backend
+# Stage 2: Run the Backend server
 FROM node:18-alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --production
-# Copy only the built 'dist' folder from the builder stage
+# Copy the 'dist' folder created in Stage 1
 COPY --from=builder /app/dist ./dist
-# Copy the backend server
 COPY server.js ./
-# Copy any other necessary files (like metadata.json)
 COPY metadata.json ./
 
 EXPOSE 3000
