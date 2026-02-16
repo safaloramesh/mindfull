@@ -2,15 +2,16 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy dependency files
+# Copy package files and install dependencies
 COPY package*.json ./
 RUN npm install --production
 
-# Copy the rest of the application code
+# Copy the rest of the code
 COPY . .
 
-# EXPOSE the port your app uses (your repo uses 3000)
+# Expose the port used in your vite.config.ts and server.js
 EXPOSE 3000
 
-# FIX: Point to app.js instead of index.js
-CMD [ "node", "app.js" ]
+# THE FIX: Use the start script from package.json
+# This will correctly run "node server.js"
+CMD [ "npm", "start" ]
