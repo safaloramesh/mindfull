@@ -4,5 +4,5 @@ COPY package*.json ./
 RUN npm install --production
 COPY . .
 EXPOSE 3000
-# We use the start script from your package.json (which points to server.js)
-CMD ["npm", "start"]
+# This matches your server.js file from the screenshot
+CMD ["node", "server.js"]
