@@ -2,8 +2,9 @@ version: '3.8'
 
 services:
   app:
-    build: .
-    image: mindfull-app:v1.0.1  # Changed the tag to force a new build
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: mindful_remind_app
     ports:
       - "3000:3000"
