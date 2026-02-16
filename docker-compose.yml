@@ -1,0 +1,17 @@
+
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - API_KEY=${API_KEY}
+      - NODE_ENV=production
+    volumes:
+      - mindful_remind_data:/app/data
+    restart: always
+
+volumes:
+  mindful_remind_data:

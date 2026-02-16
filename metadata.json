@@ -1,0 +1,5 @@
+{
+  "name": "MindfulRemind - Smart AI Task Manager",
+  "description": "A sophisticated reminder application featuring user authentication, an admin dashboard, persistent storage, and AI-powered task assistance powered by Gemini.",
+  "requestFramePermissions": []
+}
